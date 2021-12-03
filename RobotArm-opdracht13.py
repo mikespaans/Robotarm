@@ -4,17 +4,21 @@ robotArm = RobotArm()
 robotArm.randomLevel(1,7)
 
 # Jouw python instructies zet je vanaf hier:
-NaarLinks = 2
-NaarRechts = 2
-for i in range (1,7):
+Doorgaan = True
+Bewegen = 2
+
+while Doorgaan == True:
     robotArm.grab()
-    for i in range (1,NaarRechts):
+    color = robotArm.scan()
+    if color == "":
+        Doorgaan = False
+    for i in range (1, Bewegen):
         robotArm.moveRight()
     robotArm.drop()
-    for i in range (1,NaarLinks):
+    for i in range (1, Bewegen):
         robotArm.moveLeft()
-    NaarLinks += 1
-    NaarRechts += 1
+    Bewegen += 1
+    
 
 
     
